@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\ArtikelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.home');
 });
+
+Route::get('/cms/data-artikel', function () {
+    return view('backend.artikel');
+});
+
+Route::get('/home/get', [ArtikelController::class, 'index'])->name('getData.artikel');
+Route::post('/artikel/create', [ArtikelController::class, 'store'])->name('createData.asrtikel');
