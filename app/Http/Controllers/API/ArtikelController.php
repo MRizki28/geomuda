@@ -64,6 +64,15 @@ class ArtikelController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function getDataId($id)
+    {
+        $data = ArtikelModel::where('id', $id)->first();
+        return response()->json([
+            'message' => 'success get data by id',
+            'data' => $data
+        ],Response::HTTP_OK);
+    }
+
     public function delete($id)
     {
         $data = ArtikelModel::findOrfail($id);

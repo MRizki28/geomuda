@@ -21,6 +21,11 @@ Route::get('/', function () {
 Route::get('/cms/data-artikel', function () {
     return view('backend.artikel');
 });
+Route::get('/detail-artikel/{id}', function () {
+    return view('frontend.detail');
+});
 
+//api
 Route::get('/home/get', [ArtikelController::class, 'index'])->name('getData.artikel');
 Route::post('/artikel/create', [ArtikelController::class, 'store'])->name('createData.asrtikel');
+Route::get('/cms/data-artikel/{id}', [ArtikelController::class, 'getDataId']);
